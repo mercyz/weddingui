@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bukumi and Toba | Coming Soon</title>
+    <link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Poiret+One|Rajdhani&display=swap" rel="stylesheet">
+</head>
+<style>
+    body{
+        margin:0;
+        padding:0;
+        box-sizing: border-box;
+    }
+    .wrapper{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction:column;
+        background: url('img/banner-1.jpg');
+        background-size: cover;
+        background-position:center;
+        height:100vh;
+        overflow: hidden;
+        z-index: -1;
+    }
+    .wrapper::before{
+        content: " ";
+        position: absolute;
+        top: 0;
+        left:0;
+        background: rgba(145, 127, 2, 0.68);
+        width:100%;
+        height:100%;
+
+    }
+    .wrap{
+        display: flex;
+        position: relative;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .block{
+        width: 175px;
+        height:175px;
+        border:1px solid #fff;
+        border-radius: 50%;
+        margin:10px;
+    }
+    .inner-wrap{
+        height: 0px;
+        padding-bottom: 100%;
+        position: relative;
+        width: 100%;
+    }
+    .clock-border{
+        border-radius: 50%;
+        position:relative;
+        display: flex;
+        flex-direction:column;
+        justify-content: center;
+        align-items: center;
+
+    }
+    .count-down-tick{
+        font-size: 75px;
+        color: #fff;
+        padding-top: 30px;
+    }
+    .count-down-text{
+        color:#fff;
+        font-size:20px;
+    }
+    .content{
+        z-index: 1000;
+    }
+    .couple-name{
+        color:#fff;
+        font-size:6.5rem;
+        font-family: 'Great Vibes', cursive;
+        font-weight:500;
+        margin-bottom:15px;
+        text-align: center;
+    }
+    .getting-married{
+        color:#fff;
+        font-size:30px; 
+        text-align: center;
+        font-family: 'Rajdhani', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: .75rem;
+    }
+</style>
+<body>
+    <div class="wrapper">
+        <div class="content">
+            <h2 class="couple-name">Bukumi & Toba</h2>
+            <p class="getting-married">We're getting married.</p>
+        </div>
+        <div class="count-down">
+            <div class="count-down-container">
+                <div class="wrap">
+                    <div class="block">
+                        <div class="inner-wrap">
+                            <div class="clock-border">
+                               <span class="count-down-tick" id="days">29</span><br/>
+                               <span class="count-down-text">Days</span class="count-down-text">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="block">
+                        <div class="inner-wrap">
+                            <div class="clock-border">
+                                <span class="count-down-tick" id="hours">12</span>
+                                <span class="count-down-text">Hours</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="block">
+                        <div class="inner-wrap">
+                            <div class="clock-border">
+                                <span class="count-down-tick" id="minutes">30</span>
+                                <span class="count-down-text">Minutes</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="block">
+                        <div class="inner-wrap">
+                            <div class="clock-border">
+                                <span class="count-down-tick" id="seconds">50</span class="count-down-tick">
+                                    <span class="count-down-text">Seconds</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+        const futureDate = new Date('Feb 19, 2020').getTime();
+        const getDays = document.getElementById('days');
+        const getHours = document.getElementById('hours');
+        const getMinutes = document.getElementById('minutes');
+        const getSeconds = document.getElementById('seconds');
+
+        const countDown = setInterval(function(){
+            let now = new Date().getTime();
+            let distance = futureDate - now;
+
+            let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            let hours = Math.floor((distance % (1000 * 60 * 60 * 24 )) / (1000 * 60 * 60));
+            let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            getDays.innerHTML = days;
+            getHours.innerHTML = hours;
+            getMinutes.innerHTML = minutes;
+            getSeconds.innerHTML = seconds;
+
+            if(distance < 0){
+                clearInterval(countDown);
+                getDays.innerHTML = 0;
+                getHours.innerHTML = hours;
+                getMinutes.innerHTML = minutes;
+                getSeconds.innerHTML = seconds;
+            }
+        }, 1000);
+    </script>
+</body>
+</html>

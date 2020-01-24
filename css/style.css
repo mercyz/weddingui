@@ -1,0 +1,135 @@
+body{
+    font-weight:normal;
+    font-family: 'Playfair Display', serif;
+    color:#777c87;
+    letter-spacing: 0.05em;
+    font-size:16px;
+}
+.gold{
+    color:#daa520 !important;
+}
+#main-nav{
+    height:80px;
+    background:rgba(255,255,255,1);
+    box-shadow: 0 0 8px 4px rgba(0,0,0,.1);
+    display: flex;
+    transition: all ease-in-out .5s;
+}
+
+#main-nav .navbar-nav .nav-item .nav-link{
+    font-size:14px;
+    color:#101127;
+    padding:0.75em 15px;
+    letter-spacing: 1px;
+    transition: all ease-in-out .3s;
+}
+#main-nav .navbar-nav .nav-item .nav-link:hover{
+    color:#daa520;
+}
+.active{
+    color:#daa520 !important;
+}
+/* .banner{
+    height:100vh;
+    width: 100%;
+    display: flex;
+} */
+
+.banner-container{
+    background:url('/img/banner-1.jpg');
+    background-repeat: no-repeat;
+    background-position:right;
+    background-size: cover;
+    width:100%;
+    height:100vh;
+    z-index: 100;
+    position: relative;
+    padding:100px 0;
+}
+.banner-container::before{
+    content: "";
+    left: 0;
+    top:0;
+    position: absolute;
+    width:100%;
+    height:100vh;
+    background:rgba(0, 0, 0, 0.57);
+    z-index: 100;
+}
+.m-card{
+    /* background:rgba(255, 255, 255, 0.836); */
+    background: #fff;
+    position: relative;
+    z-index: 999;
+    min-width:406px;
+    min-height:500px;
+}
+.m-card-header{
+    margin:30px 0 0 30px;
+}
+.m-card-footer{
+    margin:0 30px 30px 0;
+}
+.m-card-footer img{
+    transform: rotate(180deg);
+}
+.m-card span{
+    font-family: 'Raleway', sans-serif;
+    line-height: 40px;
+    font-size: 20px;
+}
+.name{
+    font-size: 46px;
+}
+.heading-divider{
+    margin-top:9px;
+}
+.btn-gold{
+    background: #daa520;
+    color:#fff;
+    padding:8px 80px 8px 80px;
+    margin-top:20px;
+    font-family: 'Playfair Display', serif;
+    line-height: 24px;
+    font-size: 24px;
+    box-shadow: 0 0 0 1px #daa520;
+    border: 2px solid white;
+    border-radius:0;
+    cursor: pointer;
+}
+.title{
+    font-family: 'Playball', cursive;
+    margin-bottom:9px;
+}
+.couple-h4{
+    font-family: Great Vibes;
+}
+.quote{
+    background:url('../img/queto.jpg');
+    background-size:cover;
+    background-attachment: fixed;
+    background-position: center;
+    min-height: 300px;
+    display: block;
+    position: relative;
+    z-index: -1;
+}
+.quote::before{
+    content: "";
+    width:100%;
+    height:100%;
+    background:rgba(0, 0, 0, 0.57);
+    position: absolute;
+    top:0;
+    left: 0;
+    z-index: -1;
+}
+.quote-text{
+    font-size: 45px;
+    color:#fff;
+    z-index: 10000;
+    font-family: 'Great Vibes', cursive;
+}
+.quote-author{
+    z-index: 1000;
+}
